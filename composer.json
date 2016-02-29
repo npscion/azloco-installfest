@@ -1,0 +1,16 @@
+{
+    "require": {
+        "zendframework/zend-servicemanager": "2.3.*",
+        "zendframework/zendframework1": "1.12.*",
+        "php": "~5.5",
+        "ext-curl": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Installfest_": "library"
+        },
+        "classmap": [
+            "installfest/includes"
+        ]
+    }
+}

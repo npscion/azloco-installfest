@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>
+        <?php
+            if($this->title) echo "$this->title | ";
+            echo $this->siteInfo->title;
+        ?>
+    </title>
+    <?=$this->partial('head.phtml');?>
+</head>
+
+<body>
+<?=$this->partial('scripts.phtml');?>
+</body>
+</html>
