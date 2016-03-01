@@ -1,6 +1,6 @@
 <?php
 
-class Installfest_Form_Install extends Installfest_Form_Abstract
+class Installfest_Form_Install extends Zend_Form
 {
     function __construct()
     {
@@ -42,7 +42,7 @@ class Installfest_Form_Install extends Installfest_Form_Abstract
             )
         );
         $computer_make = new Zend_Form_Element_Text('computer_make');
-        $computer_make->setLabel('computer_make');
+        $computer_make->setLabel('Computer Make');
         $computer_make->addValidator('StringLength', false, array(3, 200));
         $computer_make->setErrorMessages(array('Computer make should be between 3 and 200 characters long'));
         $computer_make->setRequired(true);
@@ -52,19 +52,19 @@ class Installfest_Form_Install extends Installfest_Form_Abstract
                 'placeholder' => ''
             )
         );
-        $computer_model = new Zend_Form_Element_Text('computer_model');
-        $computer_model->setLabel('computer_model');
-        $computer_model->addValidator('StringLength', false, array(5, 200));
-        $computer_model->setErrorMessages(array('Computer model should be between 3 and 200 characters long'));
-        $computer_model->setRequired(true);
-        $computer_model->setAttribs(
+        $computer_model_number = new Zend_Form_Element_Text('computer_model_number');
+        $computer_model_number->setLabel('Computer Model Number');
+        $computer_model_number->addValidator('StringLength', false, array(5, 200));
+        $computer_model_number->setErrorMessages(array('Computer model should be between 3 and 200 characters long'));
+        $computer_model_number->setRequired(true);
+        $computer_model_number->setAttribs(
             array(
                 'class' => 'form-control',
                 'placeholder' => ''
             )
         );
         $memory_amount = new Zend_Form_Element_Text('memory_amount');
-        $memory_amount->setLabel('memory_amount');
+        $memory_amount->setLabel('Memory Amount');
         $memory_amount->addValidator(new Zend_Validate_Between(array('min' => 0, 'max' => 1024)));
         $memory_amount->setRequired(true);
         $memory_amount->setAttribs(
@@ -106,7 +106,7 @@ class Installfest_Form_Install extends Installfest_Form_Abstract
             )
         );
         $backup = new Zend_Form_Element_Radio('backup', array('value' => 'none'));
-        $backup->setLabel('backup');
+        $backup->setLabel('Backup');
         $backup->setMultiOptions(array(
             'none' => 'No Backup',
             'partial' => 'Partial Backup (Critical Files)',
@@ -114,30 +114,19 @@ class Installfest_Form_Install extends Installfest_Form_Abstract
         ));
         $backup->setRequired(true);
         $backup->addValidator('NotEmpty', true);
-        $backup->setAttribs(
-            array(
-                'class' => 'form-control',
-                'placeholder' => ''
-            )
-        );
+
         $disk_cleanup = new Zend_Form_Element_Checkbox('disk_cleanup');
         $disk_cleanup->setLabel('Disk Cleanup');
         $disk_cleanup->setRequired(false);
-        $disk_cleanup->setAttribs(
-            array(
-                'class' => 'form-control',
-                'placeholder' => ''
-            )
-        );
+        $disk_cleanup->setCheckedValue(1);
+        $disk_cleanup->setUncheckedValue(0);
+
         $disk_defrag = new Zend_Form_Element_Checkbox('disk_defrag');
         $disk_defrag->setLabel('Disk Defragmented');
         $disk_defrag->setRequired(false);
-        $disk_defrag->setAttribs(
-            array(
-                'class' => 'form-control',
-                'placeholder' => ''
-            )
-        );
+        $disk_defrag->setCheckedValue(1);
+        $disk_defrag->setUncheckedValue(0);
+
         $old_os = new Zend_Form_Element_Text('old_os');
         $old_os->setLabel('Current operating system');
         $old_os->addValidator('StringLength', false, array(3, 200));
@@ -160,29 +149,19 @@ class Installfest_Form_Install extends Installfest_Form_Abstract
                 'placeholder' => ''
             )
         );
-        $dual_boot = new Zend_Form_Element_Radio('dual_boot', array('value' => 'no'));
+        $dual_boot = new Zend_Form_Element_Radio('dual_boot', array('value' => 0));
         $dual_boot->setLabel('Dual Boot Linux and Windows');
         $dual_boot->setMultiOptions(array(
-            'no' => 'Remove Windows',
-            'yes' => 'Dual Boot Windows and Linux'
+            '0' => 'Remove Windows',
+            '1' => 'Dual Boot Windows and Linux'
         ));
         $dual_boot->setRequired(true);
         $dual_boot->addValidator('NotEmpty', true);
-        $dual_boot->setAttribs(
-            array(
-                'class' => 'form-control',
-                'placeholder' => ''
-            )
-        );
+
         $wifi = new Zend_Form_Element_Checkbox('wifi');
         $wifi->setLabel('Wifi');
         $wifi->setRequired(false);
-        $wifi->setAttribs(
-            array(
-                'class' => 'form-control',
-                'placeholder' => ''
-            )
-        );
+
         $wifi_model_number = new Zend_Form_Element_Text('wifi_model_number');
         $wifi_model_number->setLabel('Wifi model number');
         if($wifi->isChecked()) {
@@ -203,12 +182,7 @@ class Installfest_Form_Install extends Installfest_Form_Abstract
         $ethernet = new Zend_Form_Element_Checkbox('ethernet');
         $ethernet->setLabel('Ethernet');
         $ethernet->setRequired(false);
-        $ethernet->setAttribs(
-            array(
-                'class' => 'form-control',
-                'placeholder' => ''
-            )
-        );
+
         $ethernet_model_number = new Zend_Form_Element_Text('ethernet_model_number');
         $ethernet_model_number->setLabel('Ethernet model number');
         if($ethernet->isChecked()) {
@@ -288,49 +262,29 @@ class Installfest_Form_Install extends Installfest_Form_Abstract
         $lightweight_linux = new Zend_Form_Element_Checkbox('lightweight_linux');
         $lightweight_linux->setLabel('Lightweight Linux');
         $lightweight_linux->setRequired(false);
-        $lightweight_linux->setAttribs(
-            array(
-                'class' => 'form-control',
-                'placeholder' => ''
-            )
-        );
+
         $updated = new Zend_Form_Element_Checkbox('updated');
         $updated->setLabel('Updated');
         $updated->setRequired(false);
-        $updated->setAttribs(
-            array(
-                'class' => 'form-control',
-                'placeholder' => ''
-            )
-        );
+
         $resource_list = new Zend_Form_Element_Checkbox('resource_list');
         $resource_list->setLabel('Provided Resource List');
         $resource_list->setRequired(false);
-        $resource_list->setAttribs(
-            array(
-                'class' => 'form-control',
-                'placeholder' => ''
-            )
-        );
-        $ethernet = new Zend_Form_Element_Checkbox('user_confirmation');
-        $ethernet->setLabel('User able to reboot and log into each operating system');
-        $ethernet->setRequired(false);
-        $ethernet->setAttribs(
-            array(
-                'class' => 'form-control',
-                'placeholder' => ''
-            )
-        );
+
+        $user_confirmation = new Zend_Form_Element_Checkbox('user_confirmation');
+        $user_confirmation->setLabel('User able to reboot and log into each operating system');
+        $user_confirmation->setRequired(false);
+
         $submit = new Zend_Form_Element_Submit('submit');
         $submit->setAttrib('id', 'submit-button')
                ->setAttrib('class', 'button')
                ->setLabel('SUBMIT');
 
-        $this->addElements(array($name, $helper_name, $email, $computer_make, $computer_model,
+        $this->addElements(array($name, $helper_name, $email, $computer_make, $computer_model_number,
             $memory_amount, $size_unit, $disk_size, $disk_free_space, $backup, $disk_cleanup,
             $disk_defrag, $old_os, $requested_os, $dual_boot, $wifi, $wifi_model_number, $ethernet,
             $ethernet_model_number, $cpu_model_number, $gpu_model_number, $installed_os,
-            $installed_os_version, $notes, $lightweight_linux, $updated, $resource_list, $ethernet,
+            $installed_os_version, $notes, $lightweight_linux, $updated, $resource_list, $user_confirmation,
             $notes, $submit));
 
         return $this;
