@@ -6,6 +6,7 @@ public_html/appstage.php
 installfest/config/config.xml
 config.xml
 public_html/tmp/
-configs/
+config/
 composer.phar
+composer.lock
 vendor/
