@@ -1,11 +1,11 @@
 logs/
-pristine_privatekey
 public_html/exceptions_log.txt
 public_html/.htaccess
 public_html/.htpasswd
 public_html/appstage.php
-auction/configs/config.xml
+installfest/config/config.xml
 config.xml
 public_html/tmp/
 configs/
 composer.phar
+vendor/

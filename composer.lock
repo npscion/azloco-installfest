@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "072a7f8da7b6e0a311c6508e75d84353",
-    "content-hash": "e95771d42b4a6aba9edccbca48709e68",
+    "hash": "ab4262923f8b2ab7bfb7291d7940daad",
+    "content-hash": "192aa3ebe96f3d04b0dc7eea89949a5b",
     "packages": [
         {
             "name": "zendframework/zend-servicemanager",
@@ -112,7 +112,8 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "~5.5"
+        "php": "~5.5",
+        "ext-curl": "*"
     },
     "platform-dev": []
 }

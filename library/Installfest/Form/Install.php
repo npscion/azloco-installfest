@@ -4,6 +4,8 @@ class Installfest_Form_Install extends Zend_Form
 {
     function __construct()
     {
+        parent::__construct();
+
         return $this->buildForm();
     }
 
@@ -65,7 +67,9 @@ class Installfest_Form_Install extends Zend_Form
         );
         $memory_amount = new Zend_Form_Element_Text('memory_amount');
         $memory_amount->setLabel('Memory Amount');
+        //$memory_amount->addValidator(new Zend_Validate_Digits());
         $memory_amount->addValidator(new Zend_Validate_Between(array('min' => 0, 'max' => 1024)));
+        $memory_amount->setErrorMessages(array('Memory amount must be a numeric value between 0 and 1025.'));
         $memory_amount->setRequired(true);
         $memory_amount->setAttribs(
             array(
@@ -74,8 +78,8 @@ class Installfest_Form_Install extends Zend_Form
             )
         );
         $size_unit = new Zend_Form_Element_Select('size_unit');
-        $size_unit->setLabel('GB/MB');
-        $size_unit->setMultiOptions(array('gb'=>'GB', 'mb'=>'MB'));
+        $size_unit->setLabel('GB/MB/TB');
+        $size_unit->setMultiOptions(array('gb'=>'GB', 'mb'=>'MB', 'tb' => 'TB'));
         $size_unit->setRequired(true);
         $size_unit->addValidator('NotEmpty', true);
         $size_unit->setAttribs(
@@ -86,7 +90,8 @@ class Installfest_Form_Install extends Zend_Form
         );
         $disk_size = new Zend_Form_Element_Text('disk_size');
         $disk_size->setLabel('disk_size');
-        $disk_size->addValidator(new Zend_Validate_Between(array('min' => 0, 'max' => 1000)));
+        $disk_size->addValidator(new Zend_Validate_Between(array('min' => 0, 'max' => 1001)));
+        $disk_size->setErrorMessages(array('Disk size must be a numeric value between 0 and 1001.'));
         $disk_size->setRequired(true);
         $disk_size->setAttribs(
             array(
@@ -97,7 +102,7 @@ class Installfest_Form_Install extends Zend_Form
         $disk_free_space = new Zend_Form_Element_Text('disk_free_space');
         $disk_free_space->setLabel('disk_free_space');
         $disk_free_space->addValidator(new Zend_Validate_Between(array('min' => 0, 'max' => $disk_size)));
-        $disk_free_space->setErrorMessages(array('Disk free space cannot be less than 1 or greater than disk size.'));
+        $disk_free_space->setErrorMessages(array('Disk free space must be a numeric value between 0 and disk size.'));
         $disk_free_space->setRequired(true);
         $disk_free_space->setAttribs(
             array(

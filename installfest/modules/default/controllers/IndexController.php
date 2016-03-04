@@ -21,14 +21,14 @@ class IndexController extends Zend_Controller_Action
             if ($form->isValid($_POST)) {
                 try {
                     $install = $this->install_form_service->processForm($form);
-                    $form = $this->install_form_service->generateForm();
+                    $this->submitAction();
 
                 } catch (Exception $e) {
                     echo '<b>Error</b> Submission failed.';
                     $Zend_Debug::dump($e->getMessage());
                 }
             } else {
-                echo 'Input errors detected. Please verify fields.';
+                Zend_Debug::dump($form);die;
             }
         }
         $this->view->form = $form;
