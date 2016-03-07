@@ -14,8 +14,7 @@
     } else {
         echo "Error";
     }
-
-    if($result->num_rows >0){
+    if($result->num_rows > 0){
         echo "<br>" . "Results for '" . $name . "':<br></br>";
         while($row = $result->fetch_assoc()){
             echo "Date: " . $row["submit_date"] . "<br>" .

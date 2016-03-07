@@ -67,9 +67,9 @@ class Installfest_Form_Install extends Zend_Form
         );
         $memory_amount = new Zend_Form_Element_Text('memory_amount');
         $memory_amount->setLabel('Memory Amount');
-        //$memory_amount->addValidator(new Zend_Validate_Digits());
+        $memory_amount->addValidator(new Zend_Validate_Digits());
         $memory_amount->addValidator(new Zend_Validate_Between(array('min' => 0, 'max' => 1024)));
-        $memory_amount->setErrorMessages(array('Memory amount must be a numeric value between 0 and 1025.'));
+        $memory_amount->setErrorMessages(array('Memory amount must be a numeric value from 1 to 1023.'));
         $memory_amount->setRequired(true);
         $memory_amount->setAttribs(
             array(
@@ -78,8 +78,8 @@ class Installfest_Form_Install extends Zend_Form
             )
         );
         $size_unit = new Zend_Form_Element_Select('size_unit');
-        $size_unit->setLabel('GB/MB/TB');
-        $size_unit->setMultiOptions(array('gb'=>'GB', 'mb'=>'MB', 'tb' => 'TB'));
+        $size_unit->setLabel('GB/MB');
+        $size_unit->setMultiOptions(array('gb'=>'GB', 'mb'=>'MB'));
         $size_unit->setRequired(true);
         $size_unit->addValidator('NotEmpty', true);
         $size_unit->setAttribs(
@@ -88,10 +88,33 @@ class Installfest_Form_Install extends Zend_Form
                 'placeholder' => ''
             )
         );
+        $size_unit_hd = new Zend_Form_Element_Select('size_unit_hd');
+        $size_unit_hd->setLabel('GB/TB');
+        $size_unit_hd->setMultiOptions(array('gb'=>'GB', 'tb' => 'TB'));
+        $size_unit_hd->setRequired(true);
+        $size_unit_hd->addValidator('NotEmpty', true);
+        $size_unit_hd->setAttribs(
+            array(
+                'class' => 'form-control',
+                'placeholder' => ''
+            )
+        );
+        $size_unit_hd_free = new Zend_Form_Element_Select('size_unit_hd_free');
+        $size_unit_hd_free->setLabel('GB/TB');
+        $size_unit_hd_free->setMultiOptions(array('gb'=>'GB', 'tb' => 'TB'));
+        $size_unit_hd_free->setRequired(true);
+        $size_unit_hd_free->addValidator('NotEmpty', true);
+        $size_unit_hd_free->setAttribs(
+            array(
+                'class' => 'form-control',
+                'placeholder' => ''
+            )
+        );
         $disk_size = new Zend_Form_Element_Text('disk_size');
         $disk_size->setLabel('disk_size');
-        $disk_size->addValidator(new Zend_Validate_Between(array('min' => 0, 'max' => 1001)));
-        $disk_size->setErrorMessages(array('Disk size must be a numeric value between 0 and 1001.'));
+        $disk_size->addValidator(new Zend_Validate_Digits());
+        $disk_size->addValidator(new Zend_Validate_Between(array('min' => 0, 'max' => 1000)));
+        $disk_size->setErrorMessages(array('Disk size must be a numeric value from 1 to 999.'));
         $disk_size->setRequired(true);
         $disk_size->setAttribs(
             array(
@@ -99,10 +122,13 @@ class Installfest_Form_Install extends Zend_Form
                 'placeholder' => ''
             )
         );
+        //TODO Javascript to limit max value to the input $disk_size value;
+        //This will not work.
         $disk_free_space = new Zend_Form_Element_Text('disk_free_space');
         $disk_free_space->setLabel('disk_free_space');
+        $disk_free_space->addValidator(new Zend_Validate_Digits());
         $disk_free_space->addValidator(new Zend_Validate_Between(array('min' => 0, 'max' => $disk_size)));
-        $disk_free_space->setErrorMessages(array('Disk free space must be a numeric value between 0 and disk size.'));
+        $disk_free_space->setErrorMessages(array('Disk free space must be a numeric value between 0 and Disk Size.'));
         $disk_free_space->setRequired(true);
         $disk_free_space->setAttribs(
             array(
@@ -122,15 +148,13 @@ class Installfest_Form_Install extends Zend_Form
 
         $disk_cleanup = new Zend_Form_Element_Checkbox('disk_cleanup');
         $disk_cleanup->setLabel('Disk Cleanup');
-        $disk_cleanup->setRequired(false);
-        $disk_cleanup->setCheckedValue(1);
-        $disk_cleanup->setUncheckedValue(0);
+        $disk_cleanup->setCheckedValue("yes");
+        $disk_cleanup->setunCheckedValue("no");
 
         $disk_defrag = new Zend_Form_Element_Checkbox('disk_defrag');
         $disk_defrag->setLabel('Disk Defragmented');
-        $disk_defrag->setRequired(false);
-        $disk_defrag->setCheckedValue(1);
-        $disk_defrag->setUncheckedValue(0);
+        $disk_defrag->setCheckedValue("yes");
+        $disk_defrag->setunCheckedValue("no");
 
         $old_os = new Zend_Form_Element_Text('old_os');
         $old_os->setLabel('Current operating system');
@@ -166,6 +190,8 @@ class Installfest_Form_Install extends Zend_Form
         $wifi = new Zend_Form_Element_Checkbox('wifi');
         $wifi->setLabel('Wifi');
         $wifi->setRequired(false);
+        $wifi->setCheckedValue("yes");
+        $wifi->setunCheckedValue("no");
 
         $wifi_model_number = new Zend_Form_Element_Text('wifi_model_number');
         $wifi_model_number->setLabel('Wifi model number');
@@ -187,6 +213,8 @@ class Installfest_Form_Install extends Zend_Form
         $ethernet = new Zend_Form_Element_Checkbox('ethernet');
         $ethernet->setLabel('Ethernet');
         $ethernet->setRequired(false);
+        $ethernet->setCheckedValue("yes");
+        $ethernet->setunCheckedValue("no");
 
         $ethernet_model_number = new Zend_Form_Element_Text('ethernet_model_number');
         $ethernet_model_number->setLabel('Ethernet model number');
@@ -266,19 +294,23 @@ class Installfest_Form_Install extends Zend_Form
         );
         $lightweight_linux = new Zend_Form_Element_Checkbox('lightweight_linux');
         $lightweight_linux->setLabel('Lightweight Linux');
-        $lightweight_linux->setRequired(false);
+        $lightweight_linux->setCheckedValue("yes");
+        $lightweight_linux->setunCheckedValue("no");
 
         $updated = new Zend_Form_Element_Checkbox('updated');
         $updated->setLabel('Updated');
-        $updated->setRequired(false);
+        $updated->setCheckedValue("yes");
+        $updated->setunCheckedValue("no");
 
         $resource_list = new Zend_Form_Element_Checkbox('resource_list');
         $resource_list->setLabel('Provided Resource List');
-        $resource_list->setRequired(false);
+        $resource_list->setCheckedValue("yes");
+        $resource_list->setunCheckedValue("no");
 
         $user_confirmation = new Zend_Form_Element_Checkbox('user_confirmation');
         $user_confirmation->setLabel('User able to reboot and log into each operating system');
-        $user_confirmation->setRequired(false);
+        $user_confirmation->setCheckedValue("yes");
+        $user_confirmation->setunCheckedValue("no");
 
         $submit = new Zend_Form_Element_Submit('submit');
         $submit->setAttrib('id', 'submit-button')
@@ -286,7 +318,7 @@ class Installfest_Form_Install extends Zend_Form
                ->setLabel('SUBMIT');
 
         $this->addElements(array($name, $helper_name, $email, $computer_make, $computer_model_number,
-            $memory_amount, $size_unit, $disk_size, $disk_free_space, $backup, $disk_cleanup,
+            $memory_amount, $size_unit, $size_unit_hd, $size_unit_hd_free, $disk_size, $disk_free_space, $backup, $disk_cleanup,
             $disk_defrag, $old_os, $requested_os, $dual_boot, $wifi, $wifi_model_number, $ethernet,
             $ethernet_model_number, $cpu_model_number, $gpu_model_number, $installed_os,
             $installed_os_version, $notes, $lightweight_linux, $updated, $resource_list, $user_confirmation,

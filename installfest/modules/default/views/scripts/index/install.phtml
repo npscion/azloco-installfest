@@ -9,7 +9,7 @@
                 <?=$this->form->name->renderErrors()?>
             </div>
             <div class="form-group form-group-sm">
-                <label class="">Helper Name</label>
+                <label class="">Helper Name *</label>
                 <?=$this->form->helper_name->renderViewHelper()?>
                 <?=$this->form->helper_name->renderErrors()?>
             </div>
@@ -24,7 +24,7 @@
                 <?=$this->form->computer_make->renderErrors()?>
             </div>
             <div class="form-group form-group-sm">
-                <label class="">Computer Model Number*</label>
+                <label class="">Computer Model Number *</label>
                 <?=$this->form->computer_model_number->renderViewHelper()?>
                 <?=$this->form->computer_model_number->renderErrors()?>
             </div>
@@ -38,7 +38,7 @@
                 </div>
                 <div class="col-xs-4">
                     <div class="form-group form-group-sm">
-                        <label class="">GB/MB/TB</label>
+                        <label class="">GB/MB</label>
                         <?=$this->form->size_unit->renderViewHelper()?>
                         <?=$this->form->size_unit->renderErrors()?>
                     </div>
@@ -48,15 +48,15 @@
                 <div class="col-xs-8">
                     <div class="form-group form-group-sm" type="number">
                         <label class="">Disk Size *</label>
-                            <?=$this->form->memory_amount->renderViewHelper()?>
-                            <?=$this->form->memory_amount->renderErrors()?>
+                            <?=$this->form->disk_size->renderViewHelper()?>
+                            <?=$this->form->disk_size->renderErrors()?>
                     </div>
                </div>
                <div class="col-xs-4">
                     <div class="form-group form-group-sm">
-                        <label class="">GB/MB/TB</label>
-                            <?=$this->form->size_unit->renderViewHelper()?>
-                            <?=$this->form->size_unit->renderErrors()?>
+                        <label class="">GB/TB</label>
+                            <?=$this->form->size_unit_hd->renderViewHelper()?>
+                            <?=$this->form->size_unit_hd->renderErrors()?>
                     </div>
               </div>
             </div>
@@ -64,15 +64,15 @@
                 <div class="col-xs-8">
                     <div class="form-group form-group-sm" type="number">
                         <label class="">Disk Free Space *</label>
-                            <?=$this->form->memory_amount->renderViewHelper()?>
-                            <?=$this->form->memory_amount->renderErrors()?>
+                            <?=$this->form->disk_free_space->renderViewHelper()?>
+                            <?=$this->form->disk_free_space->renderErrors()?>
                     </div>
                </div>
                     <div class="col-xs-4">
                         <div class="form-group form-group-sm">
-                            <label class="">GB/MB/TB</label>
-                                <?=$this->form->size_unit->renderViewHelper()?>
-                                <?=$this->form->size_unit->renderErrors()?>
+                            <label class="">GB/TB</label>
+                                <?=$this->form->size_unit_hd_free->renderViewHelper()?>
+                                <?=$this->form->size_unit_hd_free->renderErrors()?>
                         </div>
                     </div>
             </div>
@@ -102,7 +102,7 @@
                 <?=$this->form->old_os->renderErrors()?>
             </div>
             <div class="form-group form-group-sm">
-                <label class="">Requested Linux Version *</label>
+                <label class="">Requested Linux Version</label>
                 <?=$this->form->requested_os->renderViewHelper()?>
                 <?=$this->form->requested_os->renderErrors()?>
             </div>
@@ -114,6 +114,7 @@
         </div>
         <div class="col-sm-6">
             <div><h3>Installation Report</h3></div>
+            <!--TODO Javascript to hide/show ethernet and wifi options based on state of checkbox-->
             <div class="form-group form-group-sm">
                 <div class="row">
                     <div class="col-xs-2">
@@ -169,7 +170,7 @@
                     </div>
                     <div class="col-xs-6">
                         <div class="form-group form-group-sm">
-                            <label class="">Version*</label>
+                            <label class="">Version *</label>
                             <?=$this->form->installed_os_version->renderViewHelper()?>
                             <?=$this->form->installed_os_version->renderErrors()?>
                         </div>
