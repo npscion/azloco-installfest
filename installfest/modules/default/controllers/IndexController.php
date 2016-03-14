@@ -21,14 +21,12 @@ class IndexController extends Zend_Controller_Action
             if ($form->isValid($_POST)) {
                 try {
                     $install = $this->install_form_service->processForm($form);
-                    echo $install;
                     $this->install_form_service->generateForm();
-                    //$this->_redirect("/default/index/submit");
                 } catch (Exception $e) {
                     echo '<b>Error</b> Submission failed.';
                     $Zend_Debug::dump($e->getMessage());
                 }
-            } 
+            }
         }
         $this->view->form = $form;
         $this->view->title = 'Installfest Form Submission';
