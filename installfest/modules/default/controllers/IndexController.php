@@ -21,7 +21,7 @@ class IndexController extends Zend_Controller_Action
             if ($form->isValid($_POST)) {
                 try {
                     $install = $this->install_form_service->processForm($form);
-                    $this->install_form_service->generateForm();
+                    $this->_redirect('/default/index/submit/?install='.$install);
                 } catch (Exception $e) {
                     echo '<b>Error</b> Submission failed.';
                     $Zend_Debug::dump($e->getMessage());
@@ -38,7 +38,11 @@ class IndexController extends Zend_Controller_Action
     }
     public function submitAction()
     {
-
+          if($this->getRequest()->getParam('install') == 1) {
+              echo "Form submission was successful";
+          } else {
+              echo "Form submission was unsuccessful";
+          }
     }
     public function resultAction()
     {

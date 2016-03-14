@@ -61,9 +61,9 @@ class Installfest_Service_Form_Install implements Installfest_Interface_FormServ
 
             $connect->close();
 
-            return "Form submission succeeded.";
+            return 1;
         } catch (Exception $e) {
-            return "Form submission failed.";
+            return 0;
         }
     }
 }
