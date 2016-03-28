@@ -10,7 +10,6 @@
             "Installfest_": "library"
         },
         "classmap": [
-            "installfest/includes"
         ]
     }
 }
