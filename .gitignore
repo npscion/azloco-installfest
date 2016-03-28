@@ -4,7 +4,6 @@ public_html/.htaccess
 public_html/.htpasswd
 public_html/appstage.php
 installfest/config/config.xml
-config.xml
 public_html/tmp/
 config/
 composer.phar
