@@ -16,7 +16,6 @@ class IndexController extends Zend_Controller_Action
     public function installAction()
     {
         $form = $this->install_form_service->generateForm();
-
         if ($this->getRequest()->isPost()) {
             if ($form->isValid($_POST)) {
                 try {

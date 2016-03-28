@@ -3,7 +3,3 @@
 ***/
 curl -sS https://getcomposer.org/installer | php -- && ./composer.phar install --prefer-dist
 
-
-/***
-* Copy the sample config and appstage to config.xml and appstage.php *
-***/
