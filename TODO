@@ -15,3 +15,8 @@ Search
 CSS
 	Cleanup layout styling and move away from default bootstrap css
 	Cleanup and stylize Zend decorators
+
+SQL Insert
+	Add the ability to modify existing rows.
+
+Add remaining missing input validators for Disk Size > Disk Free Size, etc.
