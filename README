@@ -3,3 +3,68 @@
 ***/
 curl -sS https://getcomposer.org/installer | php -- && ./composer.phar install --prefer-dist
 
+/***
+* SQL Database *
+***/
+
+Add the following to your local MySQL database:
+
+create table install_catalog(
+	id INT UNSIGNED Auto_increment primary key, 
+	submit_date DATE NOT NULL, 
+	name varchar(30) NOT NULL, 	
+	helper_name varchar(30) NOT NULL, 
+	email varchar(30) NULL, 
+	computer_make varchar(30) NOT NULL,
+	computer_model_number varchar(30) NOT NULL,
+	memory_size varchar(10) NOT NULL,
+	disk_size varchar(30) NOT NULL,
+	disk_free_space varchar(30) NOT NULL,	
+	backup varchar(10) NOT NULL,
+	old_os varchar(30) NOT NULL,
+	requested_os varchar(30) NULL,
+	dual_boot varchar(4) NOT NULL,	
+	updated varchar(4) NOT NULL,		
+	disk_defrag varchar(4) NOT NULL,
+	resource_list varchar(4) NOT NULL,
+	user_confirmation varchar(4) NOT NULL,
+	disk_cleanup varchar(4) NOT NULL,
+	cpu_model_number varchar(30) NOT NULL,
+	gpu_model_number varchar(30) NOT NULL,
+	wifi varchar(4) NOT NULL,
+	wifi_model_number varchar(30) NULL,
+	ethernet varchar(4) NOT NULL,
+	ethernet_model_number varchar(30) NULL,
+	installed_os varchar(30) NOT NULL,
+	installed_os_version varchar(30) NOT NULL,
+	lightweight_linux varchar(4) NOT NULL,
+	notes varchar(255) NULL);
+
+/***
+* About Installfest *
+***/
+
+Installfest/Linux Workshop
+
+Who?  
+Anyone interested in learning more about open source or Linux is invited to a open workshop!  computer router or all most any device that can run on linux
+
+What?:  
+We can install most Linux distributions. routers raspberry pi's routers or almost anything running that linux can run on. We are also happy to guide you through fixing problems, answer your questions or simply discuss free software.  We meet the 1st and 3rd Saturday of every month from 10 AM until 4 PM unless we cancel or reschedule due to a holiday.  1st & 3rd Saturday sessions.  Please see the calendar at  http://www.azloco.org/?q=node/28 or http://phxlinux.org/           for more information
+We provide power and network connectivity as well as install media. 
+
+What to bring?:  
+You need to bring everything required to use your computer.
+
+/***
+* Purpose *
+***/
+
+Historically, Installfest logs and attendence have been recorded on paper. Ideally, this paper would be catalogged digitally. Realistically, this is a time consuming, manual process that seldom occurs. As a result, there is a lot of useful data that is being recorded and lost.
+
+Proposal: build a web app, connect it to a searchable database, and give access to this on the azloco server. This puts information from past Installfests at your fingertips, easily accessible from any internet connected machine.
+
+/***
+* Design *
+***/
+

@@ -1,13 +1,17 @@
 Javascript
 	Implement js scripts in installfest.js for hiding/showing elements, modals, etc.
+
 Index page
 	Add Authentication and Authorization, login
+
 SQL admin panel
 	Add/remove form elements, change required constraints, update, delete records, manage accounts.
+
 Search
 	SQL query models
 	Expanded search form
 	Better results layout
+
 CSS
 	Cleanup layout styling and move away from default bootstrap css
 	Cleanup and stylize Zend decorators
