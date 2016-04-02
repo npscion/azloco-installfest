@@ -4,12 +4,83 @@
             <div><h3>Installfest Form Lookup</h3></div>
         </div>
     </div>
-<form action="/default/index/result" method="post">
+<form action="/default/index/search" method="post">
   <label>Name</label>
   <input type="text" name="name">
   <br></br><button type="submit" class="btn btn-primary">Form Lookup </button>
   <a href="/default/index/install" class="btn btn-primary" role="button">New Submission</a>
 </form>
 
-<br>
+<?php $name = $_POST['name']; ?>
+<?php if($this->result->num_rows > 0 && !empty($_POST)): ?>
+    <table class = "table table-striped">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Name</th>
+            <th>Helper Name</th>
+            <th>Email</th>
+            <th>Computer Make</th>
+            <th>Computer Model Number</th>
+            <th>Memory Size</th>
+            <th>Disk Size</th>
+            <th>Disk Free Space</th>
+            <th>Backup</th>
+            <th>Current Operating System</th>
+            <th>Requested Linux Version</th>
+            <th>User Confirmation</th>
+            <th>Lightweight Linux</th>
+            <th>Resource List</th>
+            <th>Dual Boot</th>
+            <th>Disk Cleanup</th>
+            <th>CPU Model Number</th>
+            <th>GPU Model Number</th>
+            <th>Wifi</th>
+            <th>Wifi Model Number</th>
+            <th>Ethernet</th>
+            <th>Ethernet Model Number</th>
+            <th>Installed Operating System</th>
+            <th>Installed Operating System Version</th>
+            <th>Updated</th>
+            <th>Notes</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php while($row = $this->result->fetch_assoc()): ?>
+        <tr>
+            <td><?=$row["submit_date"]?><br></td>
+            <td><?=$row["name"]?><br></td>
+            <td><?=$row["helper_name"]?><br></td>
+            <td><?=$row["email"]?><br></td>
+            <td><?=$row["computer_make"]?><br></td>
+            <td><?=$row["computer_model_number"]?><br></td>
+            <td><?=$row["memory_size"]?><br></td>
+            <td><?=$row["disk_size"]?><br></td>
+            <td><?=$row["disk_free_space"]?><br></td>
+            <td><?=$row["backup"]?><br></td>
+            <td><?=$row["old_os"]?><br></td>
+            <td><?=$row["requested_os"]?><br></td>
+            <td><?=$row["user_confirmation"]?><br></td>
+            <td><?=$row["lightweight_linux"]?><br></td>
+            <td><?=$row["resource_list"]?><br></td>
+            <td><?=$row["dual_boot"]?><br></td>
+            <td><?=$row["disk_cleanup"]?><br></td>
+            <td><?=$row["cpu_model_number"]?><br></td>
+            <td><?=$row["gpu_model_number"]?><br></td>
+            <td><?=$row["wifi"]?><br></td>
+            <td><?=$row["wifi_model_number"]?><br></td>
+            <td><?=$row["ethernet"]?><br></td>
+            <td><?=$row["ethernet_model_number"]?><br></td>
+            <td><?=$row["installed_os"]?><br></td>
+            <td><?=$row["installed_os_version"]?><br></td>
+            <td><?=$row["updated"]?><br></td>
+            <td><?=$row["notes"]?><br></br>
+        </tr>
+    <?php endwhile ?>
+    </tbody>
+    </table>
+    <?php else: ?>
+        No records found
+    <?php endif ?>
+    <br>
 </div>

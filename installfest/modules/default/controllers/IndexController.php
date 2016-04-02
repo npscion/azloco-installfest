@@ -33,7 +33,14 @@ class IndexController extends Zend_Controller_Action
     }
     public function searchAction()
     {
+        $connect=mysqli_connect('localhost', 'root', '', 'installfest');
 
+        if(mysqli_connect_errno($connect)) {
+            echo 'Failed to connect';
+        }
+        $sql = "SELECT * FROM install_catalog where name = '$_POST[name]'";
+        $this->view->result = $connect->query($sql);
+        $connect->close();
     }
     public function submitAction()
     {
