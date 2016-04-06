@@ -1,13 +1,53 @@
 /***
-* Install with composer *
+* About Installfest *
 ***/
+
+Installfest/Linux Workshop
+
+Who?  
+Anyone interested in learning more about open source or Linux is invited to a open workshop!  computer router or all most any device that can run on linux
+
+What?:  
+We can install most Linux distributions. routers raspberry pi's routers or almost anything running that linux can run on. We are also happy to guide you through fixing problems, answer your questions or simply discuss free software.  We meet the 1st and 3rd Saturday of every month from 10 AM until 4 PM unless we cancel or reschedule due to a holiday.  1st & 3rd Saturday sessions.  Please see the calendar at  http://www.azloco.org/?q=node/28 or http://phxlinux.org/           for more information
+We provide power and network connectivity as well as install media. 
+
+What to bring?:  
+You need to bring everything required to use your computer.
+
+/***
+* Purpose *
+***/
+
+Historically, Installfest logs and attendence have been recorded on paper. Ideally, this paper would be cataloged digitally. Realistically, this is a time consuming, manual process that seldom occurs. As a result, there is a lot of useful data that is being recorded and lost.
+
+Proposal: build a web app, connect it to a searchable database, and give access to this on the azloco server. This puts information from past Installfests at your fingertips, easily accessible from any internet connected device.
+
+/***
+* Prerequisites *
+***/
+
+You will need a web server set up locally to use this. I'm using Debian 8, Nginx 1.6.2, PHP 5.5 and MySQL 5.6 on my local environment. You will also need git and curl installed to setup the enviroment.
+
+/***
+* Installation *
+***/
+
+From a terminal, make sure you are in the directory that you have proper permissions for and want the project. Then run the following:
+
+git clone https://github.com/npscion/azloco-installfest.git
+sudo chmod -R 777 azloco-installfest
+cd azloco-installfest
 curl -sS https://getcomposer.org/installer | php -- && ./composer.phar install --prefer-dist
 
 /***
 * SQL Database *
 ***/
 
-Add the following to your local MySQL database:
+Log into your MySQL database and run the following:
+
+create database installfest;
+
+use installfest;
 
 create table install_catalog(
 	id INT UNSIGNED Auto_increment primary key, 
@@ -40,31 +80,4 @@ create table install_catalog(
 	lightweight_linux varchar(4) NOT NULL,
 	notes varchar(255) NULL);
 
-/***
-* About Installfest *
-***/
-
-Installfest/Linux Workshop
-
-Who?  
-Anyone interested in learning more about open source or Linux is invited to a open workshop!  computer router or all most any device that can run on linux
-
-What?:  
-We can install most Linux distributions. routers raspberry pi's routers or almost anything running that linux can run on. We are also happy to guide you through fixing problems, answer your questions or simply discuss free software.  We meet the 1st and 3rd Saturday of every month from 10 AM until 4 PM unless we cancel or reschedule due to a holiday.  1st & 3rd Saturday sessions.  Please see the calendar at  http://www.azloco.org/?q=node/28 or http://phxlinux.org/           for more information
-We provide power and network connectivity as well as install media. 
-
-What to bring?:  
-You need to bring everything required to use your computer.
-
-/***
-* Purpose *
-***/
-
-Historically, Installfest logs and attendence have been recorded on paper. Ideally, this paper would be catalogged digitally. Realistically, this is a time consuming, manual process that seldom occurs. As a result, there is a lot of useful data that is being recorded and lost.
-
-Proposal: build a web app, connect it to a searchable database, and give access to this on the azloco server. This puts information from past Installfests at your fingertips, easily accessible from any internet connected machine.
-
-/***
-* Design *
-***/
-
+exit
