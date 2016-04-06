@@ -39,8 +39,6 @@ class IndexController extends Zend_Controller_Action
             if ($form->isValid($_POST)) {
                 try {
                     $search = $this->search_form_service->processForm($form);
-                    //Zend_Debug::dump($search);die;
-        //            $this->_redirect('/default/index/search');
                 } catch (Exception $e) {
                     echo '<b>Error</b> Submission failed.';
                     $Zend_Debug::dump($e->getMessage());

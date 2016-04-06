@@ -6,16 +6,14 @@
     </div>
     <form id="search" class="" method="POST" style="">
         <div class="row">
-            <div class="col-xs-2">
-                <div class="form-group form-group-sm">
-                    <label class="">Search by:</label>
+            <div class="col-xs-3">
+                <div class="form-group ">
                     <?=$this->form->search_by->renderViewHelper()?>
                     <?=$this->form->search_by->renderErrors()?>
                 </div>
             </div>
-            <div class="col-xs-10">
-                <div class="form-group form-group-sm">
-                    <label class="">Search Term:</label>
+            <div class="col-xs-9">
+                <div class="form-group ">
                     <?=$this->form->search_query->renderViewHelper()?>
                     <?=$this->form->search_query->renderErrors()?>
                 </div>
@@ -25,7 +23,6 @@
         <a href="/default/index/install" class="btn btn-primary" role="button">New Submission</a>
     </form>
 </div>
-<?php Zend_Debug::dump($this->result); ?>
 <?php if($this->result->num_rows > 0): ?>
     <table class = "table table-striped">
     <thead>
