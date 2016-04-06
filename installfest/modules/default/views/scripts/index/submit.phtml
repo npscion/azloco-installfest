@@ -1,7 +1,15 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-12  install-buttons">
+            <?php if($this->result == 1): ?>
+                Form submission was successful
+            <?php else: ?>
+                Form submission was unsuccessful
+            <?php endif ?>
+        </div>
+        <div class="install-buttons">
             <a href="/default/index/install" class="btn btn-primary" role="button">Back to form submission</a>
+            <a href="/default/index/search" class="btn btn-primary" role="button">Form Lookup</a>
         </div>
     </div>
 </div>

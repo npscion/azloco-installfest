@@ -1,9 +1,0 @@
-$(document).ready(function(){
-    $('input[id="wifi"]').click(function(){
-            $("wifi_model").show();
-        }
-        if($(this).attr("value")=="green"){
-            $(".green").toggle();
-        }
-    });
-});

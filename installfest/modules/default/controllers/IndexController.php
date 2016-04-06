@@ -17,6 +17,7 @@ class IndexController extends Zend_Controller_Action
     public function installAction()
     {
         $form = $this->install_form_service->generateForm();
+
         if ($this->getRequest()->isPost()) {
             if ($form->isValid($_POST)) {
                 try {
@@ -50,11 +51,7 @@ class IndexController extends Zend_Controller_Action
     }
     public function submitAction()
     {
-          if($this->getRequest()->getParam('install') == 1) {
-              echo "Form submission was successful";
-          } else {
-              echo "Form submission was unsuccessful";
-          }
+          $this->view->result = $this->getRequest()->getParam('install');
     }
     public function resultAction()
     {

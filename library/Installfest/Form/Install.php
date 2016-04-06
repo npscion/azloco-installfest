@@ -178,55 +178,32 @@ class Installfest_Form_Install extends Zend_Form
                 'placeholder' => ''
             )
         );
-        $dual_boot = new Zend_Form_Element_Radio('dual_boot', array('value' => 0));
+        $dual_boot = new Zend_Form_Element_Radio('dual_boot', array('value' => 'yes'));
         $dual_boot->setLabel('Dual Boot Linux and Windows');
         $dual_boot->setMultiOptions(array(
-            '0' => 'Remove Windows',
-            '1' => 'Dual Boot Windows and Linux'
+            'yes' => 'Remove Windows',
+            'no' => 'Dual Boot Windows and Linux'
         ));
         $dual_boot->setRequired(true);
         $dual_boot->addValidator('NotEmpty', true);
 
-        $wifi = new Zend_Form_Element_Checkbox('wifi');
-        $wifi->setLabel('Wifi');
-        $wifi->setRequired(false);
-        $wifi->setCheckedValue("yes");
-        $wifi->setunCheckedValue("no");
-
         $wifi_model_number = new Zend_Form_Element_Text('wifi_model_number');
-        $wifi_model_number->setLabel('Wifi model number');
-        if($wifi->isChecked()) {
-            $wifi_model_number->addValidator('StringLength', false, array(5, 200));
-            $wifi_model_number->setErrorMessages(array('Wifi model number should be between 3 and 200 characters long'));
-            $wifi_model_number->setRequired(true);
-        } else {
-            $wifi_model_number->addValidator('NotEmpty', false);
-            $wifi_model_number->setErrorMessages(array('Wifi must be checked to submit a wifi model number'));
-            $wifi_model_number->setRequired(false);
-        }
+        $wifi_model_number->setLabel('Wifi Model Number');
+        $wifi_model_number->addValidator('StringLength', false, array(5, 200));
+        $wifi_model_number->setErrorMessages(array('Wifi model number should be between 3 and 200 characters long'));
+        $wifi_model_number->setRequired(false);
         $wifi_model_number->setAttribs(
             array(
                 'class' => 'form-control',
                 'placeholder' => ''
             )
         );
-        $ethernet = new Zend_Form_Element_Checkbox('ethernet');
-        $ethernet->setLabel('Ethernet');
-        $ethernet->setRequired(false);
-        $ethernet->setCheckedValue("yes");
-        $ethernet->setunCheckedValue("no");
 
         $ethernet_model_number = new Zend_Form_Element_Text('ethernet_model_number');
         $ethernet_model_number->setLabel('Ethernet model number');
-        if($ethernet->isChecked()) {
-            $ethernet_model_number->addValidator('StringLength', false, array(5, 200));
-            $ethernet_model_number->setErrorMessages(array('Ethernet model number should be between 3 and 200 characters long'));
-            $ethernet_model_number->setRequired(true);
-        } else {
-            $ethernet_model_number->addValidator('NotEmpty', false);
-            $ethernet_model_number->setErrorMessages(array('Ethernet must be checked to submit a ethernet model number'));
-            $ethernet_model_number->setRequired(false);
-        }
+        $ethernet_model_number->addValidator('StringLength', false, array(5, 200));
+        $ethernet_model_number->setErrorMessages(array('Ethernet model number should be between 3 and 200 characters long'));
+        $ethernet_model_number->setRequired(false);
         $ethernet_model_number->setAttribs(
             array(
                 'class' => 'form-control',
@@ -319,8 +296,7 @@ class Installfest_Form_Install extends Zend_Form
 
         $this->addElements(array($name, $helper_name, $email, $computer_make, $computer_model_number,
             $memory_amount, $size_unit, $size_unit_hd, $size_unit_hd_free, $disk_size, $disk_free_space, $backup, $disk_cleanup,
-            $disk_defrag, $old_os, $requested_os, $dual_boot, $wifi, $wifi_model_number, $ethernet,
-            $ethernet_model_number, $cpu_model_number, $gpu_model_number, $installed_os,
+            $disk_defrag, $old_os, $requested_os, $dual_boot, $wifi_model_number, $ethernet_model_number, $cpu_model_number, $gpu_model_number, $installed_os,
             $installed_os_version, $notes, $lightweight_linux, $updated, $resource_list, $user_confirmation,
             $notes, $submit));
 
