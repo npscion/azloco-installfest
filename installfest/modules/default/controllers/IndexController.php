@@ -6,6 +6,7 @@ class IndexController extends Zend_Controller_Action
       //Layout
       $this->layout = Zend_Layout::getMvcInstance();
       $this->install_form_service = new Installfest_Service_Form_Install();
+      $this->search_form_service = new Installfest_Service_Form_Search();
     }
 
     public function indexAction()
@@ -33,14 +34,21 @@ class IndexController extends Zend_Controller_Action
     }
     public function searchAction()
     {
-        $connect=mysqli_connect('localhost', 'root', '', 'installfest');
-
-        if(mysqli_connect_errno($connect)) {
-            echo 'Failed to connect';
+        $form = $this->search_form_service->generateForm();
+        if ($this->getRequest()->isPost()) {
+            if ($form->isValid($_POST)) {
+                try {
+                    $search = $this->search_form_service->processForm($form);
+                    //Zend_Debug::dump($search);die;
+        //            $this->_redirect('/default/index/search');
+                } catch (Exception $e) {
+                    echo '<b>Error</b> Submission failed.';
+                    $Zend_Debug::dump($e->getMessage());
+                }
+            }
         }
-        $sql = "SELECT * FROM install_catalog where name = '$_POST[name]'";
-        $this->view->result = $connect->query($sql);
-        $connect->close();
+        $this->view->form = $form;
+        $this->view->result = $search;
     }
     public function submitAction()
     {

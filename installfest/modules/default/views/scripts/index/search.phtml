@@ -4,15 +4,29 @@
             <div><h3>Installfest Form Lookup</h3></div>
         </div>
     </div>
-<form action="/default/index/search" method="post">
-  <label>Name</label>
-  <input type="text" name="name">
-  <br></br><button type="submit" class="btn btn-primary">Form Lookup </button>
-  <a href="/default/index/install" class="btn btn-primary" role="button">New Submission</a>
-</form>
-
-<?php $name = $_POST['name']; ?>
-<?php if($this->result->num_rows > 0 && !empty($_POST)): ?>
+    <form id="search" class="" method="POST" style="">
+        <div class="row">
+            <div class="col-xs-2">
+                <div class="form-group form-group-sm">
+                    <label class="">Search by:</label>
+                    <?=$this->form->search_by->renderViewHelper()?>
+                    <?=$this->form->search_by->renderErrors()?>
+                </div>
+            </div>
+            <div class="col-xs-10">
+                <div class="form-group form-group-sm">
+                    <label class="">Search Term:</label>
+                    <?=$this->form->search_query->renderViewHelper()?>
+                    <?=$this->form->search_query->renderErrors()?>
+                </div>
+            </div>
+        </div>
+        <button style="display: inline" type="submit" id="search_submit" class="btn btn-primary">Form Lookup</button>
+        <a href="/default/index/install" class="btn btn-primary" role="button">New Submission</a>
+    </form>
+</div>
+<?php Zend_Debug::dump($this->result); ?>
+<?php if($this->result->num_rows > 0): ?>
     <table class = "table table-striped">
     <thead>
         <tr>
@@ -79,7 +93,7 @@
     <?php endwhile ?>
     </tbody>
     </table>
-    <?php else: ?>
+    <?php elseif (!empty($_POST)): ?>
         No records found
     <?php endif ?>
     <br>
