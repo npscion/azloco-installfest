@@ -77,23 +77,21 @@
                     </div>
             </div>
             <div class="row">
-                <div class="col-xs-4">
-                    <div class="form-group form-group-sm">
-                        <?=$this->form->backup->renderViewHelper()?>
-                        <?=$this->form->backup->renderErrors()?>
-                    </div>
+                <div class="col-xs-6 form-group form-group-sm">
+                    <?=$this->form->disk_cleanup->renderViewHelper()?>
+                    <?=$this->form->disk_cleanup->renderErrors()?>
+                    <label class="">Disk Cleanup</label>
                 </div>
-                <div class="col-xs-8">
-                    <div class="form-group form-group-sm">
-                        <?=$this->form->disk_cleanup->renderViewHelper()?>
-                        <?=$this->form->disk_cleanup->renderErrors()?>
-                        <label class="">Disk Cleanup</label>
-                    </div>
-                    <div class="form-group form-group-sm">
-                        <?=$this->form->disk_defrag->renderViewHelper()?>
-                        <?=$this->form->disk_defrag->renderErrors()?>
-                        <label class="">Disk Defragmented</label>
-                    </div>
+                <div class="col-xs-6 form-group form-group-sm">
+                    <?=$this->form->disk_defrag->renderViewHelper()?>
+                    <?=$this->form->disk_defrag->renderErrors()?>
+                    <label class="">Disk Defrag</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group form-group-sm">
+                    <?=$this->form->backup->renderViewHelper()?>
+                    <?=$this->form->backup->renderErrors()?>
                 </div>
             </div>
             <div class="form-group form-group-sm">
@@ -113,68 +111,70 @@
         </div>
         <div class="col-sm-6">
             <div><h3>Installation Report</h3></div>
-                <div class="form-group form-group-sm">
-                    <label>Wifi Model Number</label>
-                    <?=$this->form->wifi_model_number->renderViewHelper()?>
-                    <?=$this->form->wifi_model_number->renderErrors()?>
-                </div>
-                <div class="form-group form-group-sm">
-                    <label>Ethernet Model Number</label>
-                    <?=$this->form->ethernet_model_number->renderViewHelper()?>
-                    <?=$this->form->ethernet_model_number->renderErrors()?>
-                </div>
-                <div class="form-group form-group-sm">
-                    <label class="">CPU Model Number *</label>
-                    <?=$this->form->cpu_model_number->renderViewHelper()?>
-                    <?=$this->form->cpu_model_number->renderErrors()?>
-                </div>
-                <div class="form-group form-group-sm">
-                    <label class="">GPU Model Number *</label>
-                      <?=$this->form->gpu_model_number->renderViewHelper()?>
-                      <?=$this->form->gpu_model_number->renderErrors()?>
-                </div>
-                <div class="form-group form-group-sm">
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <label class="">Linux Installed *</label>
-                            <?=$this->form->installed_os->renderViewHelper()?>
-                            <?=$this->form->installed_os->renderErrors()?>
-                        </div>
-                        <div class="col-xs-6">
-                            <label class="">Version *</label>
-                            <?=$this->form->installed_os_version->renderViewHelper()?>
-                            <?=$this->form->installed_os_version->renderErrors()?>
-                        </div>
+            <div class="form-group form-group-sm">
+                <label>Wifi Model Number</label>
+                <?=$this->form->wifi_model_number->renderViewHelper()?>
+                <?=$this->form->wifi_model_number->renderErrors()?>
+            </div>
+            <div class="form-group form-group-sm">
+                <label>Ethernet Model Number</label>
+                <?=$this->form->ethernet_model_number->renderViewHelper()?>
+                <?=$this->form->ethernet_model_number->renderErrors()?>
+            </div>
+            <div class="form-group form-group-sm">
+                <label class="">CPU Model Number *</label>
+                <?=$this->form->cpu_model_number->renderViewHelper()?>
+                <?=$this->form->cpu_model_number->renderErrors()?>
+            </div>
+            <div class="form-group form-group-sm">
+                <label class="">GPU Model Number *</label>
+                  <?=$this->form->gpu_model_number->renderViewHelper()?>
+                  <?=$this->form->gpu_model_number->renderErrors()?>
+            </div>
+            <div class="form-group form-group-sm">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <label class="">Linux Installed *</label>
+                        <?=$this->form->installed_os->renderViewHelper()?>
+                        <?=$this->form->installed_os->renderErrors()?>
+                    </div>
+                    <div class="col-xs-6">
+                        <label class="">Version *</label>
+                        <?=$this->form->installed_os_version->renderViewHelper()?>
+                        <?=$this->form->installed_os_version->renderErrors()?>
                     </div>
                 </div>
-                <div class="form-group form-group-sm">
-                    <label class="">Notes</label>
-                    <?=$this->form->notes->renderViewHelper()?>
-                    <?=$this->form->notes->renderErrors()?>
-                </div>
-                <div class="form-group form-group-sm">
+            </div>
+            <div class="form-group form-group-sm">
+                <label class="">Notes</label>
+                <?=$this->form->notes->renderViewHelper()?>
+                <?=$this->form->notes->renderErrors()?>
+            </div>
+            <div class="row">
+                <div class="form-group form-group-sm col-xs-3 col-lg-3">
                     <?=$this->form->lightweight_linux->renderViewHelper()?>
                     <?=$this->form->lightweight_linux->renderErrors()?>
-                    <label class="">Lightweight Linux</label>
+                    <label class="">Minimal Linux</label>
                 </div>
-                <div class="form-group form-group-sm">
+                <div class="form-group form-group-sm col-xs-3 col-lg-3">
                     <?=$this->form->updated->renderViewHelper()?>
                     <?=$this->form->updated->renderErrors()?>
                     <label class="">Updated</label>
                 </div>
-                <div class="form-group form-group-sm">
+                <div class="form-group form-group-sm col-xs-3 col-lg-3">
                     <?=$this->form->resource_list->renderViewHelper()?>
                     <?=$this->form->resource_list->renderErrors()?>
                     <label class="">Resource List</label>
                 </div>
-                <div class="form-group form-group-sm">
+                <div class="form-group form-group-sm col-xs-3 col-lg-3">
                     <?=$this->form->user_confirmation->renderViewHelper()?>
                     <?=$this->form->user_confirmation->renderErrors()?>
                     <label class="">User verified</label>
                 </div>
             </div>
         </div>
-        <div>* Required Field</div>
+    </div>
+    <div>* Required Field</div>
     <div class="install-buttons">
         <button style="display: inline" type="submit" id="install_submit" class="btn btn-primary">Submit</button>
         <a href="/default/index/search" class="btn btn-primary" role="button">Form Lookup</a>

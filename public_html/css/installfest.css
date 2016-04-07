@@ -5,5 +5,10 @@
 .install-buttons {
     padding-top: 20px;
     padding-bottom: 20px;
-    padding-left: 10px;
+}
+
+.submit-buttons {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
 }

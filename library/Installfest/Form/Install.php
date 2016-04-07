@@ -256,7 +256,7 @@ class Installfest_Form_Install extends Zend_Form
         );
         $notes = new Zend_Form_Element_Textarea('notes');
         $notes->setLabel('notes');
-        $notes->setAttribs(array('rows' => 3, 'cols' => 42));
+        $notes->setAttribs(array('rows' => 8, 'cols' => 42));
         $notes->addValidator('StringLength', false, array(0, 400));
         $notes->setErrorMessages(
             array(

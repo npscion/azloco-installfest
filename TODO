@@ -8,15 +8,19 @@ SQL admin panel
 	Add/remove form elements, change required constraints, update, delete records, manage accounts.
 
 Search
-	SQL query models
-	Expanded search form
+	SQL query models - Done until there is a need for more robust queries
+		Expanded search form
 	Better results layout
-
-CSS
+		Break down results into several pages at specified number splits
+		List preview of results with link to expanded information.
+		
+Layout/CSS
 	Cleanup layout styling and move away from default bootstrap css
 	Cleanup and stylize Zend decorators
-
+	Add mouse over tooltip events containing explainations of what each field represents
 SQL Insert
 	Add the ability to modify existing rows.
 
-Add remaining missing input validators for Disk Size > Disk Free Size, etc.
+Input Validation
+	Add remaining missing input validators for Disk Size > Disk Free Size, etc.
+
