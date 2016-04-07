@@ -4,7 +4,7 @@
             <div><h3>Installfest Form Lookup</h3></div>
         </div>
     </div>
-    <form id="search" class="" method="POST" style="">
+    <form id="search" class="submit-buttons" method="POST" style="">
         <div class="row">
             <div class="col-xs-3">
                 <div class="form-group ">
@@ -22,72 +22,73 @@
         <button style="display: inline" type="submit" id="search_submit" class="btn btn-primary">Form Lookup</button>
         <a href="/default/index/install" class="btn btn-primary" role="button">New Submission</a>
     </form>
-</div>
-<?php if($this->result->num_rows > 0): ?>
-    <table class = "table table-striped">
-    <thead>
-        <tr>
-            <th>Date</th>
-            <th>Name</th>
-            <th>Helper Name</th>
-            <th>Email</th>
-            <th>Computer Make</th>
-            <th>Computer Model Number</th>
-            <th>Memory Size</th>
-            <th>Disk Size</th>
-            <th>Disk Free Space</th>
-            <th>Backup</th>
-            <th>Current Operating System</th>
-            <th>Requested Linux Version</th>
-            <th>User Confirmation</th>
-            <th>Lightweight Linux</th>
-            <th>Resource List</th>
-            <th>Dual Boot</th>
-            <th>Disk Cleanup</th>
-            <th>CPU Model Number</th>
-            <th>GPU Model Number</th>
-            <th>Wifi Model Number</th>
-            <th>Ethernet Model Number</th>
-            <th>Installed Operating System</th>
-            <th>Installed Operating System Version</th>
-            <th>Updated</th>
-            <th>Notes</th>
-        </tr>
-    </thead>
-    <tbody>
-    <?php while($row = $this->result->fetch_assoc()): ?>
-        <tr>
-            <td><?=$row["submit_date"]?><br></td>
-            <td><?=$row["name"]?><br></td>
-            <td><?=$row["helper_name"]?><br></td>
-            <td><?=$row["email"]?><br></td>
-            <td><?=$row["computer_make"]?><br></td>
-            <td><?=$row["computer_model_number"]?><br></td>
-            <td><?=$row["memory_size"]?><br></td>
-            <td><?=$row["disk_size"]?><br></td>
-            <td><?=$row["disk_free_space"]?><br></td>
-            <td><?=$row["backup"]?><br></td>
-            <td><?=$row["old_os"]?><br></td>
-            <td><?=$row["requested_os"]?><br></td>
-            <td><?=$row["user_confirmation"]?><br></td>
-            <td><?=$row["lightweight_linux"]?><br></td>
-            <td><?=$row["resource_list"]?><br></td>
-            <td><?=$row["dual_boot"]?><br></td>
-            <td><?=$row["disk_cleanup"]?><br></td>
-            <td><?=$row["cpu_model_number"]?><br></td>
-            <td><?=$row["gpu_model_number"]?><br></td>
-            <td><?=$row["wifi_model_number"]?><br></td>
-            <td><?=$row["ethernet_model_number"]?><br></td>
-            <td><?=$row["installed_os"]?><br></td>
-            <td><?=$row["installed_os_version"]?><br></td>
-            <td><?=$row["updated"]?><br></td>
-            <td><?=$row["notes"]?><br></br>
-        </tr>
-    <?php endwhile ?>
-    </tbody>
-    </table>
-    <?php elseif (!empty($_POST)): ?>
-        No records found
+    <?php if($this->result->num_rows > 0): ?>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Name</th>
+                    <th>Helper Name</th>
+                    <th>Email</th>
+                    <th>Computer Make</th>
+                    <th>Computer Model Number</th>
+                    <th>Memory Size</th>
+                    <th>Disk Size</th>
+                    <th>Disk Free Space</th>
+                    <th>Backup</th>
+                    <th>Current Operating System</th>
+                    <th>Requested Linux Version</th>
+                    <th>User Confirmation</th>
+                    <th>Lightweight Linux</th>
+                    <th>Resource List</th>
+                    <th>Dual Boot</th>
+                    <th>Disk Cleanup</th>
+                    <th>CPU Model Number</th>
+                    <th>GPU Model Number</th>
+                    <th>Wifi Model Number</th>
+                    <th>Ethernet Model Number</th>
+                    <th>Installed Operating System</th>
+                    <th>Installed Operating System Version</th>
+                    <th>Updated</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php while($row = $this->result->fetch_assoc()): ?>
+                <tr>
+                    <td><?=$row["submit_date"]?><br></td>
+                    <td><?=$row["name"]?><br></td>
+                    <td><?=$row["helper_name"]?><br></td>
+                    <td><?=$row["email"]?><br></td>
+                    <td><?=$row["computer_make"]?><br></td>
+                    <td><?=$row["computer_model_number"]?><br></td>
+                    <td><?=$row["memory_size"]?><br></td>
+                    <td><?=$row["disk_size"]?><br></td>
+                    <td><?=$row["disk_free_space"]?><br></td>
+                    <td><?=$row["backup"]?><br></td>
+                    <td><?=$row["old_os"]?><br></td>
+                    <td><?=$row["requested_os"]?><br></td>
+                    <td><?=$row["user_confirmation"]?><br></td>
+                    <td><?=$row["lightweight_linux"]?><br></td>
+                    <td><?=$row["resource_list"]?><br></td>
+                    <td><?=$row["dual_boot"]?><br></td>
+                    <td><?=$row["disk_cleanup"]?><br></td>
+                    <td><?=$row["cpu_model_number"]?><br></td>
+                    <td><?=$row["gpu_model_number"]?><br></td>
+                    <td><?=$row["wifi_model_number"]?><br></td>
+                    <td><?=$row["ethernet_model_number"]?><br></td>
+                    <td><?=$row["installed_os"]?><br></td>
+                    <td><?=$row["installed_os_version"]?><br></td>
+                    <td><?=$row["updated"]?><br></td>
+                    <td><?=$row["notes"]?><br></br>
+                </tr>
+            <?php endwhile ?>
+            </tbody>
+        </table>
+    <?php elseif (!empty($_POST) && empty($this->form->search_query->getErrors())): ?>
+        <div class="row">
+            <div class="col-sm-12">No records found</div>
+        </div>
     <?php endif ?>
-    <br>
+</div>
 </div>
