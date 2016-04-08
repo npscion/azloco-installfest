@@ -48,10 +48,12 @@ class IndexController extends Zend_Controller_Action
         }
         $this->view->form = $form;
         $this->view->result = $search;
+        $this->view->title = 'Installfest Form Lookup';
     }
     public function submitAction()
     {
           $this->view->result = $this->getRequest()->getParam('install');
+          $this->view->title = 'Installfest Form Submission';
     }
     public function resultAction()
     {

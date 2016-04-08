@@ -1,145 +1,326 @@
 <div class="container-fluid">
+  <!-- Generated markup by the plugin -->
+  <div class="tooltip top" role="tooltip">
+    <div class="tooltip-arrow"></div>
+    <div class="tooltip-inner">
+      Some tooltip text!
+    </div>
+  </div>
 <form id="install" class="" method="POST" style="">
     <div class="row">
         <div class="col-sm-6">
             <div><h3>Installation Questionnaire</h3></div>
             <div class="form-group form-group-sm">
                 <label class="">Name</label>
+                <span
+                    class="glyphicon glyphicon-question-sign pull-right"
+                    data-toggle="tooltip"
+                    data-placement="left"
+                    data-trigger="hover"
+                    title="Assisted's name."
+                >
+                </span>
                 <?=$this->form->name->renderViewHelper()?>
                 <?=$this->form->name->renderErrors()?>
             </div>
             <div class="form-group form-group-sm">
                 <label class="">Helper Name *</label>
+                <span
+                    class="glyphicon glyphicon-question-sign pull-right"
+                    data-toggle="tooltip"
+                    data-placement="left"
+                    data-trigger="hover"
+                    title="Assistant's name."
+                >
+                </span>
                 <?=$this->form->helper_name->renderViewHelper()?>
                 <?=$this->form->helper_name->renderErrors()?>
             </div>
             <div class="form-group form-group-sm">
                 <label class="">Email</label>
+                <span
+                    class="glyphicon glyphicon-question-sign pull-right"
+                    data-toggle="tooltip"
+                    data-placement="left"
+                    data-trigger="hover"
+                    title="Assisted's email, if given."
+                >
+                </span>
                 <?=$this->form->email->renderViewHelper()?>
                 <?=$this->form->email->renderErrors()?>
             </div>
             <div class="form-group form-group-sm">
                 <label class="">Computer Make *</label>
+                <span
+                    class="glyphicon glyphicon-question-sign pull-right"
+                    data-toggle="tooltip"
+                    data-placement="left"
+                    data-trigger="hover"
+                    title="Brand name of the computer's maker. IE Dell, HP, Lenovo."
+                >
+                </span>
                 <?=$this->form->computer_make->renderViewHelper()?>
                 <?=$this->form->computer_make->renderErrors()?>
             </div>
             <div class="form-group form-group-sm">
                 <label class="">Computer Model Number *</label>
+                <span
+                    class="glyphicon glyphicon-question-sign pull-right"
+                    data-toggle="tooltip"
+                    data-placement="left"
+                    data-trigger="hover"
+                    title="Model designation and number of the computer, IE Thinkpad T420."
+                >
+                </span>
                 <?=$this->form->computer_model_number->renderViewHelper()?>
                 <?=$this->form->computer_model_number->renderErrors()?>
             </div>
             <div class="row">
-                <div class="col-xs-8">
-                    <div class="form-group form-group-sm" type="number">
-                        <label class="">Memory Amount *</label>
-                        <?=$this->form->memory_amount->renderViewHelper()?>
-                        <?=$this->form->memory_amount->renderErrors()?>
-                    </div>
+                <div class="col-xs-8 form-group form-group-sm" type="number">
+                    <label class="">Memory Amount *</label>
+                    <span
+                        class="glyphicon glyphicon-question-sign pull-right"
+                        data-toggle="tooltip"
+                        data-placement="left"
+                        data-trigger="hover"
+                        title="Total amount of memory installed. Be aware of integrated graphics that reserve a portion of memory."
+                    >
+                    </span>
+                    <?=$this->form->memory_amount->renderViewHelper()?>
+                    <?=$this->form->memory_amount->renderErrors()?>
                 </div>
                 <div class="col-xs-4">
                     <div class="form-group form-group-sm">
                         <label class="">GB/MB</label>
+                        <span
+                            class="glyphicon glyphicon-question-sign pull-right"
+                            data-toggle="tooltip"
+                            data-placement="left"
+                            data-trigger="hover"
+                            title="Gigabytes/Megabytes."
+                        >
+                        </span>
                         <?=$this->form->size_unit->renderViewHelper()?>
                         <?=$this->form->size_unit->renderErrors()?>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-8">
-                    <div class="form-group form-group-sm" type="number">
-                        <label class="">Disk Size *</label>
-                            <?=$this->form->disk_size->renderViewHelper()?>
-                            <?=$this->form->disk_size->renderErrors()?>
-                    </div>
+                <div class="col-xs-8 form-group form-group-sm" type="number">
+                    <label class="">Disk Size *</label>
+                    <span
+                        class="glyphicon glyphicon-question-sign pull-right"
+                        data-toggle="tooltip"
+                        data-placement="left"
+                        data-trigger="hover"
+                        title="Total hard disk size in gigabytes or terabytes."
+                    >
+                    </span>
+                    <?=$this->form->disk_size->renderViewHelper()?>
+                    <?=$this->form->disk_size->renderErrors()?>
                </div>
-               <div class="col-xs-4">
-                    <div class="form-group form-group-sm">
-                        <label class="">GB/TB</label>
-                            <?=$this->form->size_unit_hd->renderViewHelper()?>
-                            <?=$this->form->size_unit_hd->renderErrors()?>
-                    </div>
-              </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-8">
-                    <div class="form-group form-group-sm" type="number">
-                        <label class="">Disk Free Space *</label>
-                            <?=$this->form->disk_free_space->renderViewHelper()?>
-                            <?=$this->form->disk_free_space->renderErrors()?>
-                    </div>
+               <div class="col-xs-4 form-group form-group-sm">
+                    <label class="">GB/TB</label>
+                    <span
+                        class="glyphicon glyphicon-question-sign pull-right"
+                        data-toggle="tooltip"
+                        data-placement="left"
+                        data-trigger="hover"
+                        title="Gigabytes/Terabytes."
+                    >
+                    </span>
+                    <?=$this->form->size_unit_hd->renderViewHelper()?>
+                    <?=$this->form->size_unit_hd->renderErrors()?>
                </div>
-                    <div class="col-xs-4">
-                        <div class="form-group form-group-sm">
-                            <label class="">GB/TB</label>
-                                <?=$this->form->size_unit_hd_free->renderViewHelper()?>
-                                <?=$this->form->size_unit_hd_free->renderErrors()?>
-                        </div>
-                    </div>
             </div>
             <div class="row">
-                <div class="col-xs-6 form-group form-group-sm">
-                    <?=$this->form->disk_cleanup->renderViewHelper()?>
-                    <?=$this->form->disk_cleanup->renderErrors()?>
-                    <label class="">Disk Cleanup</label>
+                <div class="col-xs-8 form-group form-group-sm" type="number">
+                    <label class="">Disk Free Space *</label>
+                    <span
+                        class="glyphicon glyphicon-question-sign pull-right"
+                        data-toggle="tooltip"
+                        data-placement="left"
+                        data-trigger="hover"
+                        title="Current free space on hard disk."
+                    >
+                    </span>
+                    <?=$this->form->disk_free_space->renderViewHelper()?>
+                    <?=$this->form->disk_free_space->renderErrors()?>
                 </div>
-                <div class="col-xs-6 form-group form-group-sm">
-                    <?=$this->form->disk_defrag->renderViewHelper()?>
-                    <?=$this->form->disk_defrag->renderErrors()?>
-                    <label class="">Disk Defrag</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 form-group form-group-sm">
-                    <?=$this->form->backup->renderViewHelper()?>
-                    <?=$this->form->backup->renderErrors()?>
+                <div class="col-xs-4 form-group form-group-sm">
+                    <label class="">GB/TB</label>
+                    <span
+                        class="glyphicon glyphicon-question-sign pull-right"
+                        data-toggle="tooltip"
+                        data-placement="left"
+                        data-trigger="hover"
+                        title="Gigabytes/Terabytes."
+                    >
+                    </span>
+                    <?=$this->form->size_unit_hd_free->renderViewHelper()?>
+                    <?=$this->form->size_unit_hd_free->renderErrors()?>
                 </div>
             </div>
             <div class="form-group form-group-sm">
                 <label class="">Current Operating System *</label>
+                <span
+                    class="glyphicon glyphicon-question-sign pull-right"
+                    data-toggle="tooltip"
+                    data-placement="left"
+                    data-trigger="hover"
+                    title="Operating system currently installed."
+                >
+                </span>
                 <?=$this->form->old_os->renderViewHelper()?>
                 <?=$this->form->old_os->renderErrors()?>
             </div>
             <div class="form-group form-group-sm">
                 <label class="">Requested Linux Version</label>
+                <span
+                    class="glyphicon glyphicon-question-sign pull-right"
+                    data-toggle="tooltip"
+                    data-placement="left"
+                    data-trigger="hover"
+                    title="Requested operating system, if any."
+                >
+                </span>
                 <?=$this->form->requested_os->renderViewHelper()?>
                 <?=$this->form->requested_os->renderErrors()?>
             </div>
-            <div class="form-group form-group-sm">
-                <?=$this->form->dual_boot->renderViewHelper()?>
-                <?=$this->form->dual_boot->renderErrors()?>
+            <div class="row">
+                <div class="col-xs-6 form-group form-group-sm">
+                    <span
+                        class="glyphicon glyphicon-question-sign pull-right"
+                        data-toggle="tooltip"
+                        data-placement="left"
+                        data-trigger="hover"
+                        title="Full, partial, or no backup of existing data has been made."
+                    >
+                    </span>
+                    <?=$this->form->backup->renderViewHelper()?>
+                    <?=$this->form->backup->renderErrors()?>
+                </div>
+                <div class="form-group form-group-sm col-xs-6">
+                    <span
+                        class="glyphicon glyphicon-question-sign pull-right"
+                        data-toggle="tooltip"
+                        data-placement="left"
+                        data-trigger="hover"
+                        title="Dual-boot or remove the existing OS with Linux install."
+                    >
+                    </span>
+                    <?=$this->form->dual_boot->renderViewHelper()?>
+                    <?=$this->form->dual_boot->renderErrors()?>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group form-group-sm col-xs-6">
+                    <?=$this->form->disk_cleanup->renderViewHelper()?>
+                    <?=$this->form->disk_cleanup->renderErrors()?>
+                    <label class="">Disk Cleanup</label>
+                    <span
+                        class="glyphicon glyphicon-question-sign pull-right"
+                        data-toggle="tooltip"
+                        data-placement="left"
+                        data-trigger="hover"
+                        title="If dual-booting, has disk cleanup been run?"
+                    >
+                    </span>
+                </div>
+                <div class="form-group form-group-sm col-xs-6">
+                    <?=$this->form->disk_defrag->renderViewHelper()?>
+                    <?=$this->form->disk_defrag->renderErrors()?>
+                    <label class="">Disk Defrag</label>
+                    <span
+                        class="glyphicon glyphicon-question-sign pull-right"
+                        data-toggle="tooltip"
+                        data-placement="left"
+                        data-trigger="hover"
+                        title="If dual-booting, has the hard disk been defragmented?"
+                    >
+                    </span>
+                </div>
             </div>
         </div>
         <div class="col-sm-6">
             <div><h3>Installation Report</h3></div>
             <div class="form-group form-group-sm">
                 <label>Wifi Model Number</label>
+                <span
+                    class="glyphicon glyphicon-question-sign  pull-right"
+                    data-toggle="tooltip"
+                    data-placement="left"
+                    data-trigger="hover"
+                    title="Make and model number of wifi, if any. IE Intel Centrino Advanced-N 6200."
+                >
+                </span>
                 <?=$this->form->wifi_model_number->renderViewHelper()?>
                 <?=$this->form->wifi_model_number->renderErrors()?>
             </div>
             <div class="form-group form-group-sm">
                 <label>Ethernet Model Number</label>
+                <span
+                    class="glyphicon glyphicon-question-sign pull-right"
+                    data-toggle="tooltip"
+                    data-placement="left"
+                    data-trigger="hover"
+                    title="Make and model number of ethernet, if any. IE Intel 82579LM Gigabit Ethernet."
+                >
+                </span>
                 <?=$this->form->ethernet_model_number->renderViewHelper()?>
                 <?=$this->form->ethernet_model_number->renderErrors()?>
             </div>
             <div class="form-group form-group-sm">
                 <label class="">CPU Model Number *</label>
+                <span
+                    class="glyphicon glyphicon-question-sign pull-right"
+                    data-toggle="tooltip"
+                    data-placement="left"
+                    data-trigger="hover"
+                    title="Make and model number of CPU. IE Intel Core i5-2520M."
+                >
+                </span>
                 <?=$this->form->cpu_model_number->renderViewHelper()?>
                 <?=$this->form->cpu_model_number->renderErrors()?>
             </div>
             <div class="form-group form-group-sm">
                 <label class="">GPU Model Number *</label>
-                  <?=$this->form->gpu_model_number->renderViewHelper()?>
-                  <?=$this->form->gpu_model_number->renderErrors()?>
+                <span
+                    class="glyphicon glyphicon-question-sign pull-right"
+                    data-toggle="tooltip"
+                    data-placement="left"
+                    data-trigger="hover"
+                    title="Make and model number of GPU. IE Intel HD Graphics 3000."
+                >
+                </span>
+                <?=$this->form->gpu_model_number->renderViewHelper()?>
+                <?=$this->form->gpu_model_number->renderErrors()?>
             </div>
             <div class="form-group form-group-sm">
                 <div class="row">
                     <div class="col-xs-6">
                         <label class="">Linux Installed *</label>
+                        <span
+                            class="glyphicon glyphicon-question-sign pull-right"
+                            data-toggle="tooltip"
+                            data-placement="left"
+                            data-trigger="hover"
+                            title="Name of the Linux distribution that was installed. IE Debian."
+                        >
+                        </span>
                         <?=$this->form->installed_os->renderViewHelper()?>
                         <?=$this->form->installed_os->renderErrors()?>
                     </div>
                     <div class="col-xs-6">
                         <label class="">Version *</label>
+                        <span
+                            class="glyphicon glyphicon-question-sign pull-right"
+                            data-toggle="tooltip"
+                            data-placement="left"
+                            data-trigger="hover"
+                            title="Version of the installed linux distribution. IE '8' or 'Jessie'."
+                        >
+                        </span>
                         <?=$this->form->installed_os_version->renderViewHelper()?>
                         <?=$this->form->installed_os_version->renderErrors()?>
                     </div>
@@ -147,29 +328,71 @@
             </div>
             <div class="form-group form-group-sm">
                 <label class="">Notes</label>
+                <span
+                    class="glyphicon glyphicon-question-sign pull-right"
+                    data-toggle="tooltip"
+                    data-placement="left"
+                    data-trigger="hover"
+                    title="Please note any special circumstances or information that would be useful for installing this same configuration again. Please be detailed and include any relevant links."
+                >
+                </span>
                 <?=$this->form->notes->renderViewHelper()?>
                 <?=$this->form->notes->renderErrors()?>
             </div>
             <div class="row">
-                <div class="form-group form-group-sm col-xs-3 col-lg-3">
+                <div class="form-group form-group-sm col-xs-6">
                     <?=$this->form->lightweight_linux->renderViewHelper()?>
                     <?=$this->form->lightweight_linux->renderErrors()?>
                     <label class="">Minimal Linux</label>
+                    <span
+                        class="glyphicon glyphicon-question-sign pull-right"
+                        data-toggle="tooltip"
+                        data-placement="left"
+                        data-trigger="hover"
+                        title="A lightweight distribution installed due to hardware limitations."
+                    >
+                    </span>
                 </div>
-                <div class="form-group form-group-sm col-xs-3 col-lg-3">
+                <div class="form-group form-group-sm col-xs-6">
                     <?=$this->form->updated->renderViewHelper()?>
                     <?=$this->form->updated->renderErrors()?>
                     <label class="">Updated</label>
+                    <span
+                        class="glyphicon glyphicon-question-sign pull-right"
+                        data-toggle="tooltip"
+                        data-placement="left"
+                        data-trigger="hover"
+                        title="All updates were installed."
+                    >
+                    </span>
                 </div>
-                <div class="form-group form-group-sm col-xs-3 col-lg-3">
+            </div>
+            <div class="row">
+                <div class="form-group form-group-sm col-xs-6">
                     <?=$this->form->resource_list->renderViewHelper()?>
                     <?=$this->form->resource_list->renderErrors()?>
                     <label class="">Resource List</label>
+                    <span
+                        class="glyphicon glyphicon-question-sign pull-right"
+                        data-toggle="tooltip"
+                        data-placement="left"
+                        data-trigger="hover"
+                        title="Free software resource list was provided to user."
+                    >
+                    </span>
                 </div>
-                <div class="form-group form-group-sm col-xs-3 col-lg-3">
+                <div class="form-group form-group-sm col-xs-6">
                     <?=$this->form->user_confirmation->renderViewHelper()?>
                     <?=$this->form->user_confirmation->renderErrors()?>
                     <label class="">User verified</label>
+                    <span
+                        class="glyphicon glyphicon-question-sign pull-right"
+                        data-toggle="tooltip"
+                        data-placement="left"
+                        data-trigger="hover"
+                        title="User sucessfully rebooted and logged in themselves."
+                    >
+                    </span>
                 </div>
             </div>
         </div>
@@ -181,3 +404,9 @@
     </div>
 </form>
 </div>
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+</script>

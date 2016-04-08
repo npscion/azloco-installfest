@@ -179,10 +179,10 @@ class Installfest_Form_Install extends Zend_Form
             )
         );
         $dual_boot = new Zend_Form_Element_Radio('dual_boot', array('value' => 'yes'));
-        $dual_boot->setLabel('Dual Boot Linux and Windows');
+        $dual_boot->setLabel('Dual Boot Linux and Existing OS');
         $dual_boot->setMultiOptions(array(
-            'yes' => 'Remove Windows',
-            'no' => 'Dual Boot Windows and Linux'
+            'yes' => 'Remove Existing OS',
+            'no' => 'Dual Boot Existing OS and Linux'
         ));
         $dual_boot->setRequired(true);
         $dual_boot->addValidator('NotEmpty', true);
